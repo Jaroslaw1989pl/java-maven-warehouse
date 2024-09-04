@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    /* background-color: #5bad8e; */
+}
+
+    main {
+        width: 90%;
+        margin: auto;
+    }
+
+        .list-container {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        #services-list {
+            width: 100%;
+            border-top-right-radius: 10px;
+            background-color: #88dadd;
+        }
+
+            #services-list ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                #controller-list {
+                    width: 95%;
+                    border-top-right-radius: 10px;
+                    background-color: #a7dd88;
+                }
+
+                    #endpoint-list {
+                        width: 95%;
+                        border-top-right-radius: 10px;
+                        background-color: #dda388;
+                    }
+
+                        .list-item {
+                            margin-bottom: 5px;
+                        }
+
+                            .list-item header {
+                                padding: 5px;
+                                background-color: inherit;
+                                border-bottom: inherit;
+                            }
+                            .list-item header:hover {
+                                cursor: pointer;
+                            }
+                            .list-item header::after {
+                                font-weight: bold;
+                                content: '+';
+                            }
+                            .list-item header.active {
+                               
+                            }
+                            .list-item header.active::after {
+                                content: '-';
+                            }
+
+                        .list-item.get {
+                            background-color: #7ed699;
+                            border: 2px solid #45d16f;
+                            border-top-right-radius: 10px;
+                        }
+                        
+                            /* .list-item.get header {
+                                border-bottom: 2px solid #45d16f;
+                            } */
+
+                        .list-item.post {
+                            background-color: #9fb7db;
+                            border: 2px solid #78a0db;
+                            border-top-right-radius: 10px;
+                        }
+
+                            /* .list-item.post header {
+                                border-bottom: 2px solid #78a0db;
+                            } */
+
+                                .method-box {
+                                    padding: 5px;
+                                    border-radius: 5px;
+                                }
+                                .method-box.get {
+                                    background-color: #45d16f;
+                                }
+                                .method-box.post {
+                                    background-color: #78a0db;
+                                }
+
+                            .list-item-body {
+
+                            }
+
+                                .block-header {
+                                    background-color: #f0f8ff;
+                                    box-shadow: 0px 2px 5px #888888;
+                                }
+
+                                .block-body {
+                                    
+                                }
+
+                                    table {
+                                        width: 100%;
+                                        border-collapse: collapse;
+                                    }
+
+                                        table th {
+                                            width: 25%;
+                                            border-bottom: 1px solid #a5aaad;
+                                        }
+                                        table th:nth-child(even) {
+                                            width: 75%;
+                                        }
+
+                                        table td {
+
+                                        }
+
+                                            .parameters .parameter-name {
+                                                font-weight: bold;
+                                            }
+                                            
+                                            .parameters .parameter-type {
+                                                
+                                            }
+
+                                            .parameters .parameter-src {
+                                                color: #747474;
+                                                font-style: italic;
+                                            }
+
+                                            table .model-example {
+                                                background-color: #4d4d4d;
+                                                color: #f0f8ff;
+                                            }

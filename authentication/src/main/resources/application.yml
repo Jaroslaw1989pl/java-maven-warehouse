@@ -1,0 +1,35 @@
+server:
+    port: 8081
+    error:
+        include-message: always
+        include-binding-errors: always
+
+spring:
+    application:
+        name: authentication
+    datasource:
+        url: jdbc:postgresql://localhost:5432/authentication
+        username: service
+        password: Kodpin89!
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: dzidajaroslaw@gmail.com
+        password: fuoyszhiadwsjwil
+        protocol: smtp
+        # tls: true
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                starttls:
+                    enable: true
+                ssl:
+                    trust: smtp.gmail.com

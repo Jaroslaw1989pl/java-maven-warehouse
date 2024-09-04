@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagger</title>
+    <!-- CSS styles -->
+    <link th:href="@{/css/index.css}" rel="stylesheet"></link>
+    <!-- JS scripts -->
+    <script th:src="@{/js/index.js}" defer></script>
+</head>
+<body>
+
+    <script th:inline="javascript">
+        var services = /*[[${services}]]*/ {};
+    </script>
+
+    <main>
+        <h1>Warehouse application</h1>
+        <div id="services-list" class="list-container">
+            <ul th:each="service : ${services}">
+                <li th:id="${service.name}">
+                    <h2 th:text="${service.name}"></h2>
+                    <div id="controller-list" class="list-container">
+                        <ul th:each="controller : ${service.controllers}">
+                            <li th:id="${controller.name}">
+                                <h3 th:text="${controller.name}"></h3>
+                                <div id="endpoint-list" class="list-container">
+                                    <ul th:each="endpoint : ${controller.endpoints}">
+                                        <li th:class="|list-item ${endpoint.method.toLowerCase()} ${endpoint.action}|">
+                                            <header class="header">
+                                                <span th:text="${endpoint.method}" class="method-box" th:classappend="${endpoint.method.toLowerCase()}"></span>
+                                                <span th:text="${endpoint.action}"></span>
+                                            </header>
+                                            <div class="list-item-body">
+                                                <div class="block-description">
+                                                    <p>No description</p>
+                                                </div>
+                                                <div class="block-parameters">
+                                                    <div class="block-header">
+                                                        <h4>Parameters</h4>
+                                                    </div>
+                                                    <div class="block-body">
+                                                        <table class="parameters" th:if="${!endpoint.params.isEmpty()}">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="parameter-col parameter-name">Name</th>
+                                                                    <th class="parameter-col parameter-value">Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody th:each="parameter, iterator : ${endpoint.params}">
+                                                                <tr th:class="${iterator.index}">
+                                                                    <td>
+                                                                        <div>
+                                                                            <span class="parameter-name" th:text="${parameter.name}"></span>
+                                                                            <span th:if="${parameter.required}" style="color: red;">* required</span>
+                                                                        </div>
+                                                                        <div class="parameter-type">
+                                                                            <span th:text="${parameter.type}"></span>
+                                                                        </div>
+                                                                        <div class="parameter-src">
+                                                                            <span th:text="|(${parameter.source})|"></span>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div>
+                                                                            <span>No description</span>
+                                                                        </div>
+                                                                        <div th:if="${parameter.type == 'object'}" class="model-example parameter" th:data-model="${parameter.model}"></div>
+                                                                        <div th:if="${parameter.type != 'object'}">
+                                                                            <input type="text" th:placeholder="${parameter.name}" disabled>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div th:if="${endpoint.params.isEmpty()}">
+                                                            <span>No parameters</span>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+                                                <div class="block-response">
+                                                    <div class="block-header">
+                                                        <h4>Responses</h4>
+                                                    </div>
+                                                    <div class="block-body">
+                                                        <table class="responses">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="responses-col responses-code">Code</th>
+                                                                    <th class="responses-col responses-desc">Description</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody th:each="response : ${endpoint.responses}">
+                                                                <tr>
+                                                                    <td>
+                                                                        <span th:text="${response.code}"></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="model-example response" th:data-model="${response.model}"></div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

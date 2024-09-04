@@ -1,0 +1,9 @@
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/UserRepository.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/dtos/UserCreateRequestDTO.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/dtos/UserDTO.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/enums/UserRole.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/mappers/UserToUserDTO.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/User.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/UserService.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/UserApplication.java
+/home/jaroslaw/web-services/java_microservices/warehouse/user/src/main/java/com/service/user/UserController.java
